@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 import scrapy
 from scrapy.spider import Spider, Request
 from scrapy.selector import Selector
@@ -5,6 +6,7 @@ from scrapy.selector import Selector
 from tutorial.items import AnJuKeItem
 
 
+# 抓取安居客
 class DmozSpider(Spider):
     name = "dmoz"
     allowed_domains = ["dmoz.org"]

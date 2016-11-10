@@ -88,3 +88,9 @@ ROBOTSTXT_OBEY = False
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+# start MySQL database configure setting
+MYSQL_HOST = 'localhost'
+MYSQL_DBNAME = 'cnblogsdb'
+MYSQL_USER = 'root'
+MYSQL_PASSWD = 'root'
+# end of MySQL database configure setting
