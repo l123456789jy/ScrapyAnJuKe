@@ -35,13 +35,13 @@ class AnJuKeDb:
             print "except"
 
     # 插入数据
-    def insertData(self):
+    def insertData(self, name, phone, address):
         db = self.getDbConnect()
         # 使用cursor()方法获取操作游标
         cursor = db.cursor()
         # SQL 插入语句
         sql = "INSERT  INTO ANJUKE(NAME,PHONE,ADDRESS)values(%s,%s,%s)"
-        param = ("sss", 'Ass', 'MAsssN')
+        param = (name, phone, address)
         cursor.execute(sql, param)
         # 提交到数据库执行
         db.commit()
@@ -51,4 +51,4 @@ class AnJuKeDb:
 
 bdtb = AnJuKeDb()
 bdtb.createTable()
-bdtb.insertData()
+bdtb.insertData("6", "5", "4")
