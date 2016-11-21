@@ -24,9 +24,11 @@ class AnJuKeDb:
     def createTable(self):
         try:
             sql = """CREATE TABLE IF NOT EXISTS  ANJUKE (
-                 NAME  CHAR(255) ,
+                 NAME  CHAR(255)  charset utf8 collate utf8_general_ci,
                  PHONE  CHAR(255),
-                 ADDRESS CHAR(255))"""
+                 ADDRESS CHAR(255)
+                 charset utf8 collate utf8_general_ci
+                 )"""
 
             db = self.getDbConnect()
             db.cursor().execute(sql)

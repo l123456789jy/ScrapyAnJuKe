@@ -16,9 +16,7 @@ class TutorialItem(scrapy.Item):
 
 
 class AnJuKeItem(scrapy.Item):
-    title = Field()
     link = Field()
-    desc = Field()
     name = Field()
     phone = Field()
     address = Field()

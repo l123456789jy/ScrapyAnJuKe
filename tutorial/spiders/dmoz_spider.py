@@ -8,7 +8,7 @@ from tutorial.items import AnJuKeItem
 
 # 抓取安居客
 class DmozSpider(Spider):
-    name = "dmoz"
+    name = "tutorial"
     allowed_domains = ["dmoz.org"]
     start_urls = [
         "http://bj.zu.anjuke.com/ditie/dt20-l2-s435/"
@@ -25,22 +25,22 @@ class DmozSpider(Spider):
     def parse_details(self, response):
         sealsSea = Selector(response)
         nameList = sealsSea.xpath('//div/h2')
-        phoneList = sealsSea.xpath('//div[@class=\'broker_tel\']')
-        addressList = sealsSea.xpath('.//*[@id=\'commmap\']/div[2]/div[2]/div[1]/dl[3]/dd')
+        phoneList = sealsSea.xpath('.//*[@id=\'content\']/div[2]/div[2]/div[2]/div[1]/div[3]')
+        addressList = sealsSea.xpath('.//*[@id=\'content\']/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/dl[5]/dd/a')
         for sel in nameList:
             item = AnJuKeItem()
             item['name'] = sel.xpath('text()').extract()
             print item['name'][0]
             yield item
 
-            for sel in phoneList:
+            for sel2 in phoneList:
                 item = AnJuKeItem()
-                item['phone'] = sel.xpath('text()').extract()
+                item['phone'] = sel2.xpath('text()').extract()
                 print item['phone'][0]
                 yield item
 
-            for sel in addressList:
+            for sel3 in addressList:
                 item = AnJuKeItem()
-                item['address'] = sel.xpath('text()').extract()
+                item['address'] = sel3.xpath('text()').extract()
                 print item['address'][0]
                 yield item
